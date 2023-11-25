@@ -471,7 +471,7 @@
 			"response": []
 		},
 		{
-			"name": "/task/{id} Copy",
+			"name": "/task/{id}",
 			"event": [
 				{
 					"listen": "test",
