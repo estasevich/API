@@ -65,6 +65,64 @@
 			"response": []
 		},
 		{
+			"name": "/auth/access_token (Exploratory2@1.1)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var response = pm.response.json()\r",
+							"pm.collectionVariables.set(\"access_token2\", response.access_token);\r",
+							"\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "username",
+							"value": "Exploratory2@1.1",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "Exploratory2@1.1",
+							"type": "text"
+						},
+						{
+							"key": "grant_type",
+							"value": "password",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://{{baseUrl}}/api/v3/auth/access_token",
+					"protocol": "https",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"v3",
+						"auth",
+						"access_token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "/task",
 			"event": [
 				{
@@ -179,64 +237,6 @@
 						"v3",
 						"task",
 						"{{task_id}}"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "/auth/access_token (Exploratory2@1.1)",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"var response = pm.response.json()\r",
-							"pm.collectionVariables.set(\"access_token2\", response.access_token);\r",
-							"\r",
-							"pm.test(\"Status code is 200\", function () {\r",
-							"    pm.response.to.have.status(200);\r",
-							"});\r",
-							""
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "formdata",
-					"formdata": [
-						{
-							"key": "username",
-							"value": "Exploratory2@1.1",
-							"type": "text"
-						},
-						{
-							"key": "password",
-							"value": "Exploratory2@1.1",
-							"type": "text"
-						},
-						{
-							"key": "grant_type",
-							"value": "password",
-							"type": "text"
-						}
-					]
-				},
-				"url": {
-					"raw": "https://{{baseUrl}}/api/v3/auth/access_token",
-					"protocol": "https",
-					"host": [
-						"{{baseUrl}}"
-					],
-					"path": [
-						"api",
-						"v3",
-						"auth",
-						"access_token"
 					]
 				}
 			},
@@ -408,61 +408,6 @@
 						"task",
 						"{{task_id}}",
 						"comments"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "/auth/access_token (Exploratory1@1.1) re-login",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"pm.test(\"Status code is 200\", function () {\r",
-							"    pm.response.to.have.status(200);\r",
-							"});\r",
-							""
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "formdata",
-					"formdata": [
-						{
-							"key": "username",
-							"value": "Exploratory1@1.1",
-							"type": "text"
-						},
-						{
-							"key": "password",
-							"value": "Exploratory1@1.1",
-							"type": "text"
-						},
-						{
-							"key": "grant_type",
-							"value": "password",
-							"type": "text"
-						}
-					]
-				},
-				"url": {
-					"raw": "https://{{baseUrl}}/api/v3/auth/access_token",
-					"protocol": "https",
-					"host": [
-						"{{baseUrl}}"
-					],
-					"path": [
-						"api",
-						"v3",
-						"auth",
-						"access_token"
 					]
 				}
 			},
